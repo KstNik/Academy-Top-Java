@@ -9,9 +9,9 @@
 Задание 1    
 Выведите на экран надпись "Your time is limited, so don’t waste it living someone else’s life" Steve Jobs на разных строках. Пример вывода:    
 >“Your time is limited,    
-        so don’t waste it    
-            living someone else’s life”    
-                Steve Jobs
+>>so don’t waste it    
+>>>living someone else’s life”    
+>>>>Steve Jobs
 
 Задание 2    
 Пользователь вводит с клавиатуры два числа. Первое число – это значение, второе число процент, который необходимо посчитать. Например, мы ввели с клавиатуры 50 и 10. Требуется вывести на экран 10 процентов от 50. Результат: 5
