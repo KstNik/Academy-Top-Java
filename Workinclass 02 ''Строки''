@@ -1,0 +1,65 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        System.out.println("          СТРОКИ");
+        System.out.println();
+
+        // Задание 1: Обратный порядок слов в строке
+        System.out.println("    Задание 1 «Обратный порядок слов в строке»");
+        System.out.print("Введите строку: ");
+        String input1 = in.nextLine();
+        String reversedWords = reverseWords(input1);
+        System.out.println("Результат: " + reversedWords);
+        System.out.println();
+
+        // Задание 2: Проверка палиндрома
+        System.out.println("    Задание 2 «Проверка палиндрома»");
+        System.out.print("Введите строку для проверки на палиндром: ");
+        String input2 = in.nextLine();
+        boolean isPalindrome = checkPalindrome(input2);
+        System.out.println("Результат: " + (isPalindrome ? "Строка является палиндромом" : "Строка не является палиндромом"));
+
+        in.close();
+    }
+
+    // Метод для обращения порядка слов в строке
+    public static String reverseWords(String str) {
+        String[] words = str.split(" ");
+        StringBuilder reversed = new StringBuilder();
+        for (int i = words.length - 1; i >= 0; i--) {
+            reversed.append(words[i]);
+            if (i != 0) {
+                reversed.append(" ");
+            }
+        }
+        return reversed.toString();
+    }
+
+    // Метод для проверки палиндрома
+    public static boolean checkPalindrome(String str) {
+        String cleaned = str.replaceAll(" ", "").toLowerCase();
+        StringBuilder reversed = new StringBuilder(cleaned).reverse();
+        return cleaned.equals(reversed.toString());
+    }
+}
+
+/*Задача 1: Обратный порядок слов в строке
+Описание: Напишите программу, которая принимает строку от пользователя и возвращает строку с словами в обратном порядке.
+Пример:
+● Входная строка: "Hello world"
+● Выход: "world Hello"
+Подсказки:
+● Используйте метод split для разделения строки на слова.
+● Используйте метод StringBuilder для построения новой строки.
+
+Задача 2: Проверка палиндрома
+Описание: Напишите программу, которая принимает строку от пользователя и проверяет, является ли она палиндромом (читается одинаково слева направо и справа налево, игнорируя пробелы и регистр).
+Пример:
+● Входная строка: "A man a plan a canal Panama"
+● Выход: true
+Подсказки:
+● Используйте метод replaceAll для удаления пробелов и метод toLowerCase для игнорирования регистра.
+● Используйте метод StringBuilder для обратного порядка строки.*/
