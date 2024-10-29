@@ -1,0 +1,125 @@
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Scanner;
+import java.util.Set;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        Random random = new Random();
+
+        System.out.println("                МАССИВЫ");
+        System.out.println();
+
+        // Задание 1: Сумма элементов массива
+        System.out.println("    Задание 1 «Сумма элементов массива»");
+        int[] array1 = new int[10];
+        for (int i = 0; i < array1.length; i++) {
+            array1[i] = random.nextInt(100);
+        }
+        System.out.println("Массив: " + Arrays.toString(array1));
+        int sum = 0;
+        for (int num : array1) {
+            sum += num;
+        }
+        System.out.println("Сумма элементов массива: " + sum);
+        System.out.println();
+
+        // Задание 2: Поиск максимального и минимального элемента
+        System.out.println("    Задание 2 «Поиск максимального и минимального элемента»");
+        int[] array2 = new int[10];
+        for (int i = 0; i < array2.length; i++) {
+            array2[i] = random.nextInt(100);
+        }
+        System.out.println("Массив: " + Arrays.toString(array2));
+        int max = array2[0];
+        int min = array2[0];
+        for (int num : array2) {
+            if (num > max) max = num;
+            if (num < min) min = num;
+        }
+        System.out.println("Максимальный элемент: " + max);
+        System.out.println("Минимальный элемент: " + min);
+        System.out.println();
+
+        // Задание 3: Слияние двух массивов
+        System.out.println("    Задание 3 «Слияние двух массивов»");
+        int[] array3 = new int[5];
+        int[] array4 = new int[5];
+        for (int i = 0; i < array3.length; i++) {
+            array3[i] = random.nextInt(100);
+            array4[i] = random.nextInt(100);
+        }
+        System.out.println("Массив 1: " + Arrays.toString(array3));
+        System.out.println("Массив 2: " + Arrays.toString(array4));
+        int[] mergedArray = new int[array3.length + array4.length];
+        System.arraycopy(array3, 0, mergedArray, 0, array3.length);
+        System.arraycopy(array4, 0, mergedArray, array3.length, array4.length);
+        System.out.println("Объединённый массив: " + Arrays.toString(mergedArray));
+        System.out.println();
+
+        // Задание 4: Удаление дубликатов
+        System.out.println("    Задание 4 «Удаление дубликатов»");
+        int[] array5 = new int[10];
+        for (int i = 0; i < array5.length; i++) {
+            array5[i] = random.nextInt(20);
+        }
+        System.out.println("Исходный массив: " + Arrays.toString(array5));
+        Set<Integer> uniqueElements = new HashSet<>();
+        for (int num : array5) {
+            uniqueElements.add(num);
+        }
+        System.out.println("Массив без дубликатов: " + uniqueElements);
+        System.out.println();
+
+        // Задание 5: Поиск подмассива
+        System.out.println("    Задание 5 «Поиск подмассива»");
+        int[] array6 = new int[10];
+        for (int i = 0; i < array6.length; i++) {
+            array6[i] = random.nextInt(10);
+        }
+        System.out.println("Исходный массив: " + Arrays.toString(array6));
+        System.out.print("Введите длину подмассива: ");
+        int subArrayLength = in.nextInt();
+        int[] subArray = new int[subArrayLength];
+        System.out.println("Введите элементы подмассива:");
+        for (int i = 0; i < subArrayLength; i++) {
+            subArray[i] = in.nextInt();
+        }
+        boolean isSubArrayFound = containsSubArray(array6, subArray);
+        System.out.println("Подмассив " + (isSubArrayFound ? "найден." : "не найден."));
+        in.close();
+    }
+
+    public static boolean containsSubArray(int[] array, int[] subArray) {
+        for (int i = 0; i <= array.length - subArray.length; i++) {
+            boolean found = true;
+            for (int j = 0; j < subArray.length; j++) {
+                if (array[i + j] != subArray[j]) {
+                    found = false;
+                    break;
+                }
+            }
+            if (found) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+
+/*Задача 1: Сумма элементов массива
+Напишите программу, которая создает массив целых чисел, заполняет его случайными значениями и вычисляет сумму всех элементов массива. Выведите массив и сумму на экран.
+
+Задача 2: Поиск максимального и минимального элемента
+Напишите программу, которая создает массив целых чисел, заполняет его случайными значениями и находит максимальный и минимальный элементы массива. Выведите массив, максимальный и минимальный элементы на экран.
+
+Задача 3: Слияние двух массивов
+Напишите программу, которая создает два массива целых чисел, заполняет их случайными значениями и объединяет их в один массив. Выведите исходные массивы и объединенный массив на экран.
+
+Задача 4: Удаление дубликатов
+Напишите программу, которая создает массив целых чисел, заполняет его случайными значениями и удаляет все дубликаты. Выведите исходный и отфильтрованный массивы на экран.
+
+Задача 5: Поиск подмассива
+Напишите программу, которая создает массив целых чисел, заполняет его случайными значениями и запрашивает у пользователя подмассив. Программа должна проверить, содержится ли подмассив в исходном массиве, и вывести результат.*/
