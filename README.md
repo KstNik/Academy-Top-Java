@@ -200,6 +200,7 @@
 11. Test 11 "Взаимодействие с источниками данных."
 12. Test 12 "JavaServer Pages. Tags в JSP"
 13. Test 13 "Cookies, session и другое в JSP. Введение в Spring"
+14. Test 14 "Введение в Spring"
 
 #### Работа на уроках
 
