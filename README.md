@@ -201,6 +201,7 @@
 12. Test 12 "JavaServer Pages. Tags в JSP"
 13. Test 13 "Cookies, session и другое в JSP. Введение в Spring"
 14. Test 14 "Введение в Spring"
+15. Test 14 "Введение в Hibernate"
 
 #### Работа на уроках
 
